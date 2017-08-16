@@ -10,4 +10,4 @@ I've implemented simple examples how to:
   - work with GridFS,
   - import the dataset from a json file into MongoDB.
 
-Note, that you must run <b>"composer update"</b> to use MongoDB PHP driver.
+Note, that you must run ```composer update``` to use MongoDB PHP driver.
