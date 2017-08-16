@@ -4,15 +4,15 @@ require 'vendor/autoload.php';
 
 // Make a Connection
 $connection = new MongoDB\Client('mongodb://localhost:27017');
-echo "Connection to database successfully <br/>";
+echo "Connection to database successfully \n";
 
 // Select a Database
 $db = $connection->testDB;
-echo "Database testDB selected <br/>";
+echo "Database testDB selected \n";
 
 // Create a Collection
 $collection = $db->users;
-echo "Collection created succsessfully <br/>";
+echo "Collection created succsessfully \n";
 
 // Insert a Document
 $document = [
@@ -33,7 +33,7 @@ $document = [
 
 ];
 $insertOneResult = $collection->insertMany($document);
-echo "Inserted ".$insertOneResult->getInsertedCount()." document(s) <br/>";
+echo "Inserted ".$insertOneResult->getInsertedCount()." document(s) \n";
 
 // Find Many Documents
 $cursor = $collection->find(['firstname' => 'Ivan', 'lastname' => 'Tsygan']);
@@ -84,8 +84,8 @@ $updateResult = $collection->updateMany(
     // If there are matching documents, then the operation modifies or replaces the matching document or documents.
     ['upsert' => true]
 );
-echo 'Matched '.$updateResult->getMatchedCount().' document(s)<br/>';
-echo 'Modified '.$updateResult->getModifiedCount().' document(s)<br/>';
+echo "Matched ".$updateResult->getMatchedCount()." document(s) \n";
+echo "Modified ".$updateResult->getModifiedCount()." document(s) \n";
 
 // Replace Documents
 $updateResult = $collection->replaceOne(
@@ -95,7 +95,7 @@ $updateResult = $collection->replaceOne(
 
 // Delete Many Documents
 $deleteResult = $collection->deleteMany(['login' => 'user_3']);
-echo 'Deleted '.$deleteResult->getDeletedCount().' document(s)<br/>';
+echo "Deleted ".$deleteResult->getDeletedCount()." document(s) \n";
 
 /*Collations are not supported by the server
 // Find One And Delete, Assign a Collation
@@ -195,7 +195,7 @@ foreach ($lines as $line) {
 }
 $manager = new MongoDB\Driver\Manager();
 $result = $manager->executeBulkWrite('testDB.colors', $bulk);
-echo 'Inserted '.$result->getInsertedCount().' document(s)<br/>';
+echo "Inserted ".$result->getInsertedCount()." document(s) \n";
 
 
 
